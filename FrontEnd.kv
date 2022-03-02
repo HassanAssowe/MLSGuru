@@ -1,0 +1,142 @@
+
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+
+#:set text_color app.theme_cls.opposite_bg_darkest
+#:set focus_color app.theme_cls.bg_darkest
+#:set ripple_color app.theme_cls.bg_dark
+#:set bg_color app.theme_cls.bg_light
+#:set selected_color app.theme_cls.opposite_bg_darkest
+#:set primary "#df231a"
+
+
+<DrawerClickableItem@MDNavigationDrawerItem>
+    focus_color: focus_color
+    unfocus_color: bg_color
+    text_color: text_color
+    icon_color: text_color
+    ripple_color: ripple_color
+    selected_color: selected_color
+
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+    bg_color: bg_color
+    text_color: text_color
+    icon_color: text_color
+    _no_ripple_effect: True
+
+
+    MDRelativeLayout:
+        size_hint: None, None
+        size: root.size
+
+
+
+        MDLabel:
+            id: label
+            text: root.text
+            adaptive_size: True
+            color: selected_color
+
+MDScreen:
+
+    MDNavigationLayout:
+
+        ScreenManager:
+
+            MDScreen:
+
+                MDToolbar:
+                    title: ""
+                    elevation: 10
+                    pos_hint: {"top": 1}
+                    md_bg_color: app.theme_cls.bg_dark
+                    specific_text_color: app.theme_cls.opposite_bg_darkest
+                    right_action_items: [['magnify', lambda x: app.callback_1()]]
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+
+                MDCard:
+                    size_hint: None, None
+                    size_hint_x: .25
+                    size_hint_y: .75
+                    pos_hint: {'x': .05, 'center_y': .5}
+
+
+                    MDTabs:
+                        id: tabs
+                        on_tab_switch: app.on_tab_switch(*args)
+                        tab_hint_x: True
+                        background_color: app.theme_cls.bg_dark
+                        indicator_color: primary
+                        tab_indicator_anim: True
+
+                        Tab:
+                            text: "Eastern Conference"
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                tab_hint_x: True
+
+
+
+
+                            MDSeparator:
+                                halign: 'center'
+                                valign: 'top'
+
+                        Tab:
+                            text: "Western Conference"
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                tab_hint_x: True
+
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            md_bg_color: app.theme_cls.bg_light
+
+            MDNavigationDrawerMenu:
+
+
+                DrawerClickableItem:
+                    icon: "view-dashboard-edit-outline"
+                    text_right_color: text_color
+                    text: "Dashboard"
+
+                MDNavigationDrawerDivider:
+
+                MDNavigationDrawerLabel:
+                    text: "Statistics"
+
+
+                DrawerClickableItem:
+                    icon: "account"
+                    text: "Player Statistics"
+
+                DrawerClickableItem:
+                    icon: "account-group"
+                    text: "Club Statistics"
+
+                MDNavigationDrawerDivider:
+
+                MDNavigationDrawerLabel:
+                    text: "Insights"
+
+                DrawerClickableItem:
+                    icon: "star"
+                    text: "Club Insights"
+
+                DrawerClickableItem:
+                    icon: "compare-horizontal"
+                    text: "Compare Players"
+
+                MDNavigationDrawerDivider:
+
+                DrawerClickableItem:
+                    icon: "cog"
+                    text: "Preferences"
+
+
+
+
+
+
+
