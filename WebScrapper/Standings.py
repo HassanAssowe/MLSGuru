@@ -22,7 +22,7 @@ def pullData(y=date.today().year):  # This method pulls data on all teams based 
         print("Information is currently unavailable.")
 
 
-def parseData(y=date.today().year):
+def parseData(y=date.today().year): #Parsing data by Eastern & Western Conferences.
     pullData(y)
 
     for i in result:

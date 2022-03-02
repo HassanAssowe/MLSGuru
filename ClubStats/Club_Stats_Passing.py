@@ -1,7 +1,10 @@
 class Club_Stats_General:
 
     # init method or constructor
-    def __init__(self, completed_passes, total_passes, pass_percentage, fwd_zone_pass, bk_zone_pass, assists, atk_ass, acc_long_balls, long_ball_perc):
+    def __init__(self, id, completed_passes, total_passes, pass_percentage, fwd_zone_pass, bk_zone_pass, assists, atk_ass, acc_long_balls, long_ball_perc):
+
+        self.id = id
+
         self.completed_passes = completed_passes
         self.total_passes = total_passes
         self.pass_percentage = pass_percentage

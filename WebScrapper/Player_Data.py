@@ -1,11 +1,10 @@
-import datetime
+#This file is responsible for retrieval of player-specific data
+from datetime import datetime, date
+import Retrieve_Data
+
 from PlayerStats import Player
-import requests
-import json
-from datetime import date
 
-
-teams = {
+teams = { #List of team opta_ids, for now we call team IDs and parse the data for specific players.
     "atlanta": 11091,
     "austin": 15296,
     "charlotte": 16629,
@@ -36,22 +35,12 @@ teams = {
 }
 
 result = []
-session_requests = requests.session()
 defaultUri = 'https://stats-api.mlssoccer.com/v1/players/seasons?&season_opta_id={}&competition_opta_id=98&club_opta_id={}&order_by=-regular_season_player_season_stat_goals&include=regular_season_statistics&include=club_stats_general&include=player&order_by=player_last_name'
 
 
-def pullData(y=date.today().year, c=teams.get("atlanta")):  # This method pulls data on all players based on the year & specific team.
-    req = defaultUri.format(y, c)
-    try:
-        global result
-        result = json.loads(
-            session_requests.get(req).content.decode()
-        )
-    except:
-        print("An error has occured")
+def getPlayer_Info(first_name="", last_name="", team = 2077): #Returns a player class that corresponds with the found player.
+    result = pullData.pullData(defaultUri, team) #Retrieve json data based on request made.
 
-
-def getPlayer(first_name="", last_name=""):
     if first_name == "" or last_name == "":
         print("Please input a name")
 
@@ -86,12 +75,11 @@ def getPlayer(first_name="", last_name=""):
             )
             return found_player
 
-
 def getAllPlayers():
     players = []
 
     for i in result:
-        players.append(getPlayer(i.get("player").get("first_name"), i.get("player").get("last_name")))
+        players.append(getPlayer_Info(i.get("player").get("first_name"), i.get("player").get("last_name")))
 
     return players
 
@@ -104,5 +92,3 @@ def getPlayersByPosition(position='Forward'):
             allPlayers.remove(i)
 
     return allPlayers
-
-

@@ -19,7 +19,7 @@ class Tab(FloatLayout, MDTabsBase):
 class MLSGuru(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Dark"  # "Light"
-        self.load_kv("FrontEnd.kv")
+        self.load_kv("Dashboard.kv")
 
 
     def on_tab_switch(
