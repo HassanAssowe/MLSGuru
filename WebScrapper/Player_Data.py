@@ -39,7 +39,7 @@ defaultUri = 'https://stats-api.mlssoccer.com/v1/players/seasons?&season_opta_id
 
 
 def getPlayer_Info(first_name="", last_name="", team = 2077): #Returns a player class that corresponds with the found player.
-    result = pullData.pullData(defaultUri, team) #Retrieve json data based on request made.
+    result = Retrieve_Data.pullData(defaultUri, team) #Retrieve json data based on request made.
 
     if first_name == "" or last_name == "":
         print("Please input a name")
