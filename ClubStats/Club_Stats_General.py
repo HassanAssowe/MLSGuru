@@ -4,10 +4,11 @@ from ClubStats.Club import Club
 class Club_Stats_General:
 
     # init method or constructor
-    def __init__(self, opta_id, position, games_played, points, wins, losses, ties, goals, goals_against, goals_difference):
+    def __init__(self, opta_id, position, name, games_played, points, wins, losses, ties, goals, goals_against, goals_difference):
         self.opta_id = opta_id
-
         self.position = position
+        
+        self.name = name
         self.games_played = games_played
         self.points = points
         self.wins = wins
@@ -27,6 +28,11 @@ class Club_Stats_General:
     def opta_id(self, value):
         self.opta_id = value
 
+    def get_name(self):
+        return self.name
+
+    def name(self, value):
+        self.name = value
 
     def get_position(self):
         return self.position
