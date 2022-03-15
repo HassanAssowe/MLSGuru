@@ -34,11 +34,11 @@ teams = { #List of team opta_ids, for now we call team IDs and parse the data fo
     "toronto": 2077,
 }
 
-result = []
+result = ''
 defaultUri = 'https://stats-api.mlssoccer.com/v1/players/seasons?&season_opta_id={}&competition_opta_id=98&club_opta_id={}&order_by=-regular_season_player_season_stat_goals&include=regular_season_statistics&include=club_stats_general&include=player&order_by=player_last_name'
 
 
-def getPlayer_Info(first_name="", last_name="", team = 2077): #Returns a player class that corresponds with the found player.
+def getPlayer_Info(first_name="", last_name="", team = 2077): #Returns a player class that corresponds with the found player. In a team
     result = Retrieve_Data.pullData(defaultUri, team) #Retrieve json data based on request made.
 
     if first_name == "" or last_name == "":
