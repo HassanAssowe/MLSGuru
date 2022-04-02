@@ -74,19 +74,49 @@ MDScreen:
                             MDBoxLayout:
                                 orientation: "vertical"
                                 tab_hint_x: True
+                            ScrollView:
+                                MDList:
+                                    id: east_container
 
-
-
-
-                            MDSeparator:
-                                halign: 'center'
-                                valign: 'top'
 
                         Tab:
                             text: "Western Conference"
                             MDBoxLayout:
                                 orientation: "vertical"
                                 tab_hint_x: True
+                            ScrollView:
+                                MDList:
+                                    id: west_container
+
+                MDCard:
+                    size_hint: None, None
+                    size_hint_x: .25
+                    size_hint_y: .05
+                    pos_hint: {'x': .38, 'center_y': .85}
+
+                    GridLayout:
+                        id: form
+                        size_hint_y: None
+                        height: self.minimum_height
+                        cols: 5
+
+                        canvas:
+                            Color:
+                                rgba: app.theme_cls.primary_color
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+
+
+                MDLabel:
+                    size_hint_x: .25
+                    size_hint_y: .05
+                    text: "CLUB FORM"
+                    font_size: 20
+                    bold: True
+                    pos_hint: {'x': .38, 'center_y': .80}
+                    halign: "center"
+
 
 
         MDNavigationDrawer:

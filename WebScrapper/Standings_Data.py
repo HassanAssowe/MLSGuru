@@ -1,8 +1,9 @@
 #This file is responsible for Standings retrieval & management.
 import json
 from datetime import date
-import Retrieve_Data
+
 from ClubStats.Club_Stats_General import Club_Stats_General
+from WebScrapper.Retrieve_Data import pullData
 
 result = []
 easternConference = []
@@ -12,7 +13,7 @@ defaultUri = 'https://sportapi.mlssoccer.com/api/standings/live?isLive=true&seas
 
 
 def parseData(x = defaultUri, y=date.today().year): #Parsing data by Eastern & Western Conferences.
-    result = Retrieve_Data.pullData(x, y)
+    result = pullData(x, y)
     for i in result:
         if i.get('group_id') == 'East': #If the club is considered Eatern Conference, add it. Otherwise add it to the western conference.
             club = Club_Stats_General( #Define a GeneralStats Class and populate it with general information about a club.
