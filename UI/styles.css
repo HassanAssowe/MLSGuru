@@ -1,0 +1,77 @@
+/* dark-theme.css */
+body {
+  color: #eee;
+  background: #121212;
+}
+body a {
+  color: #809fff;
+}
+
+form {
+  background-color: #494949;
+  width: 50%;
+  height: auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+   position: absolute;
+   top: 50%;
+   left: 25%;
+
+}
+
+input {
+  all: unset;
+  font: 14px system-ui;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  padding: 6px 10px;
+  font-family: "Roboto"
+}
+
+::placeholder {
+  color: #fff;
+  opacity: 0.7;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
+
+svg {
+  color: #fff;
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+  padding: 10px;
+}
+
+
+
+#logo {
+position: absolute;
+ max-width: auto;
+ max-height: 10%;
+    top: 38%;
+   left: 25%;
+}
+
+
+    #content {
+        position: relative;
+
+    }
+    #content img {
+        position: absolute;
+        padding: 25px;
+        top: 0px;
+        right: 0px;
+        max-height: 50px;
+        max-width: auto;
+    }
