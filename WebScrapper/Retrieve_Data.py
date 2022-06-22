@@ -6,8 +6,7 @@ session_requests = requests.session()
 result = []
 
 
-def pullData(defaulturi, y=date.today().year,
-             c=2077):  # This method pulls data on all players based on the year & specific team.
+def pullData(defaulturi, y=date.today().year,c=2077):  # This method pulls data on all players based on the year & specific team.
     req = defaulturi.format(str(y), str(c))
     try:
         global result

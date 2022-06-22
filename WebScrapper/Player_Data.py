@@ -60,6 +60,7 @@ def getPlayer_Info(first_name="", last_name="", team = 2077): #Returns a player 
                 Player.player(
                     i.get("player").get("first_name"),
                     i.get("player").get("last_name"),
+                    i.get("player").get("optaId"),
                     datetime.datetime.fromtimestamp(
                         i.get("player").get("birth_date") / 1e3
                     ),
@@ -74,6 +75,8 @@ def getPlayer_Info(first_name="", last_name="", team = 2077): #Returns a player 
                 )
             )
             return found_player
+        else:
+            return False;
 
 def getAllPlayers():
     players = []
